@@ -19,9 +19,11 @@ def main():
 
         screen.blit(bg_img, [-tmr, 0])
         screen.blit(kou_img,[300,200])
+        if tmr>800:
+            screen.blit(bg_img, [800-tmr, 0])
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(100)
 
 
 if __name__ == "__main__":
