@@ -12,15 +12,16 @@ def main():
     bg_img = pg.image.load("fig/pg_bg.jpg")
     kou_img = pg.image.load("fig/3.png")
     kou_img = pg.transform.flip(kou_img,True,False)
-    kou_img2 =pg.transform.flip(kou_img,True,False)
+    bg_img2 =pg.transform.flip(bg_img,True,False)
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
+        tmr %= 3199
         screen.blit(bg_img, [-tmr, 0])
-        if tmr>800:
-            screen.blit(kou_img2, [800-tmr, 0])
+        screen.blit(bg_img2, [1600-tmr, 0])
+        screen.blit(bg_img, [3200-tmr, 0])
         screen.blit(kou_img,[300,200])
         pg.display.update()
         tmr += 1        
