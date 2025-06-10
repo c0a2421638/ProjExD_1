@@ -25,15 +25,15 @@ def main():
             kk_rct.move_ip(0, -1)  # 上に移動
         if key_lst[pg.K_DOWN]:
             kk_rct.move_ip(0, +1)
-        if key_lst[pg.K_LEFT]:
+        if key_lst:
             kk_rct.move_ip(-1, 0)
         if key_lst[pg.K_RIGHT]:
             kk_rct.move_ip(+1, 0)
-        tmr %= 3199
+        tmr %= 3200
         screen.blit(bg_img, [-tmr, 0])
         screen.blit(bg_img2, [1600-tmr, 0])
         screen.blit(bg_img, [3200-tmr, 0])
-        screen.blit(kk_img,[300,200])
+        screen.blit(kk_img,kk_rct)
         pg.display.update()
         tmr += 1        
         clock.tick(200)
