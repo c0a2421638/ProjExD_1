@@ -16,19 +16,23 @@ def main():
     kk_rct = kk_img.get_rect() #こうかとんのrect画像
     kk_rct.center = 300,200
     tmr = 0
+    
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-
-        key_lst = pg.key.get_pressed() 
+        time = 0
+        high = 0
+        key_lst = pg.key.get_pressed()
+        time-=1 
         if key_lst[pg.K_UP]:  
-            kk_rct.move_ip(0, -1)  # 上に移動
+            high-=1
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip(0, +1)
-        if key_lst:
-            kk_rct.move_ip(-1, 0)
+            high+=1
+        if key_lst[pg.K_LEFT]:
+            time-=1
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip(+1, 0)
+            time+=2
+        kk_rct.move_ip(time, high)
         tmr %= 3200
         screen.blit(bg_img, [-tmr, 0])
         screen.blit(bg_img2, [1600-tmr, 0])
